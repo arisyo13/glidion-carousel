@@ -1,6 +1,12 @@
-const DateCard = () => {
+type Props = {
+    day: string;
+}
+
+const DateCard = ({ day }: Props) => {
     return (
-        <div></div>
+        <div>
+            <h3>{day}</h3>
+        </div>
     )
 }
 

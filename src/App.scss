@@ -3,3 +3,11 @@
   margin: auto;
   padding: 20px;
 }
+
+.carousel {
+  background-color: red;
+
+  .slick.prev {
+    background-color: green;
+  }
+}
