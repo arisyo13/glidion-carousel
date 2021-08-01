@@ -8,13 +8,19 @@ type Props = {
 }
 
 const DateCard = ({ day, onClick, size, disabled }: Props) => {
-    const currentDay = format(day, 'dd MMM');
+    const title =  size === "full" ? format(day, "EEEE") : format(day, "EEE");
+    const sub = size === "full" ? format(day, "MMMM io") : format(day, "dd MMM");
     return (
-        <div 
+        <div
             onClick={() => onClick()}
             className={`date-card ${size === "full" && "full"} ${disabled && "disabled"}`}
         >
-            <h3>{currentDay}</h3>
+            { size === "small" ? 
+            <>
+                <h3>{title}</h3>
+                <h3>{sub}</h3>
+            </> :
+            <h3>{title + " " + sub}</h3> }
         </div>
     )
 }
