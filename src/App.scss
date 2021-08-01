@@ -3,6 +3,9 @@ $secondary-color: grey;
 $disabled-color: lightgrey;
 $selected-color: magenta;
 
+$sm: 8px;
+$breakpoint-phone: 768px;
+
 .container {
   max-width: 1100px;
   margin: auto;
@@ -14,8 +17,34 @@ $selected-color: magenta;
   display: flex;
   flex-direction: column;
   gap: 10rem;
-  margin: auto;
+  margin: 0 40px;
   overflow: hidden;
+  padding: 0px 50px;
+
+  @media (max-width: $breakpoint-phone) {
+    margin: 0 10px;
+    padding: 0px 10px;
+  }
+
+  .arrow {
+    width: 16px;
+    height: 16px;
+    padding: 8px;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    background-color: magenta;
+    cursor: pointer;
+    border-radius: $sm;
+  
+    &.next {
+      right: -3rem;
+    }
+    &.prev {
+      left: -3rem;
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
 }
 
 .date-card {
@@ -23,8 +52,8 @@ $selected-color: magenta;
   width: 100px;
   height: 100px;
   flex-direction: column;
-  border: solid 1px $secondary-color;
-  border-radius: 8px;
+  border: solid 2px $secondary-color;
+  border-radius: $sm;
   padding: 10px;
   cursor: pointer;
   justify-items: center;
