@@ -17,18 +17,18 @@ const Carousel = () => {
         <div className="carousel">
             <Slider {... { settings }}>
                 { dayList.map((day, index) => (
-                <DateCard
-                    key={index}
-                    day={day}
-                    size="small"
-                    onClick={() => setSelectedDateIndex(index)}
-                />
-            ))}
+                    <DateCard
+                        key={index}
+                        day={day}
+                        size="small"
+                        onClick={() => setSelectedDateIndex(index)}
+                    />
+                ))}
             </Slider>
             <DateCard
                 onClick={() => {}}
                 day={dayList[selectedDateIndex]}
-                size="small"
+                size="full"
             />
         </div>
     )
