@@ -5,9 +5,17 @@
 }
 
 .carousel {
-  background-color: red;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  margin: auto;
+  overflow: hidden;
+}
 
-  .slick.prev {
-    background-color: green;
-  }
+.date-card {
+  margin: auto;
+  display: flex;
+  width: 100px;
+  height: 100px;
 }
