@@ -1,5 +1,6 @@
 import Slider from 'react-slick';
 import DateCard from '../DateCard';
+import { getDays } from './definitions';
 
 const settings = {
     arrows: true,
@@ -9,12 +10,11 @@ const settings = {
 }
 
 const Carousel = () => {
+    const dayList = getDays(14);
     return (
         <div className="carousel">
             <Slider {... { settings }}>
-                <DateCard day={"1st Aug"}/>
-                <DateCard day={"1st Aug"}/>
-                <DateCard day={"1st Aug"}/>
+                { dayList.map((day, index) => (<DateCard key={index} day={day} />))}
             </Slider>
         </div>
     )

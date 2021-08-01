@@ -1,11 +1,14 @@
+import { format } from 'date-fns';
+
 type Props = {
-    day: string;
+    day: Date;
 }
 
 const DateCard = ({ day }: Props) => {
+    const currentDay = format(day, 'dd MMM')
     return (
         <div>
-            <h3>{day}</h3>
+            <h3>{currentDay}</h3>
         </div>
     )
 }
