@@ -4,6 +4,8 @@ import arrow from './assets/arrow.svg';
 import Slider from 'react-slick';
 import DateCard from '../DateCard';
 
+const random = Math.floor(Math.random() * 4 ) + 5
+
 const Carousel = () => {
     let slider: Slider | null = null;
     const dayList = getDays(14);
@@ -66,6 +68,7 @@ const Carousel = () => {
                         day={day}
                         size="small"
                         onClick={() => setSelectedDateIndex(index)}
+                        state={index === selectedDateIndex ? "selected" : random + index === index ? "disabled" : "regular"}
                     />
                 ))}
             </Slider>
@@ -74,6 +77,7 @@ const Carousel = () => {
                 onClick={() => {}}
                 day={dayList[selectedDateIndex]}
                 size="full"
+                state="regular"
             />
         </div>
     )

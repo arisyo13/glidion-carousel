@@ -4,23 +4,25 @@ type Props = {
     day: Date;
     size: 'small' | 'full';
     onClick: () => void;
-    disabled?: boolean;
+    state?: 'selected' | 'disabled' | 'regular';
 }
 
-const DateCard = ({ day, onClick, size, disabled }: Props) => {
-    const title =  size === "full" ? format(day, "EEEE") : format(day, "EEE");
-    const sub = size === "full" ? format(day, "MMMM io") : format(day, "dd MMM");
+const DateCard = ({ day, onClick, size, state }: Props) => {
+    let title = format(day, 'EEE');
+    let subTitle = format(day, 'dd MMM');
+    if (size === 'full'){
+        title = format(day, 'EEEE');
+        subTitle = format(day, 'MMMM do');
+    }
     return (
-        <div
+        <div 
             onClick={() => onClick()}
-            className={`date-card ${size === "full" && "full"} ${disabled && "disabled"}`}
+            className={`date-card ${size === "full" && "full"} ${state}`}
         >
-            { size === "small" ? 
             <>
                 <h3>{title}</h3>
-                <h3>{sub}</h3>
-            </> :
-            <h3>{title + " " + sub}</h3> }
+                <h3>{subTitle}</h3>
+            </>
         </div>
     )
 }

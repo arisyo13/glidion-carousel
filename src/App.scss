@@ -1,9 +1,9 @@
-$primary-color: black;
-$secondary-color: grey;
+$regular-color: grey;
 $disabled-color: lightgrey;
 $selected-color: magenta;
 
 $sm: 8px;
+$sm-border: 2px;
 $breakpoint-phone: 768px;
 
 .container {
@@ -53,7 +53,6 @@ $breakpoint-phone: 768px;
   flex-direction: column;
   width: 60%;
   height: 60px;
-  border: solid 1px $secondary-color;
   border-radius: $sm;
   padding: 16px;
   margin: 0, 4px;
@@ -63,18 +62,25 @@ $breakpoint-phone: 768px;
   align-items: center;
   justify-content: center;
 
+  &.regular {
+    border: solid $sm-border $regular-color;
+  }
+
   &.selected {
-    border: solid 1px $selected-color;
+    border: solid $sm-border $selected-color;
   }
 
   &.disabled {
-    border: solid 1px $disabled-color;
+    border: solid $sm-border $disabled-color;
     pointer-events: none;
   }
   &.full {
-    border: solid 1px $primary-color;
     pointer-events: none;
     width: 250px;
     margin: auto;
+  }
+
+  &:hover {
+    border: solid $sm-border $selected-color;
   }
 }
