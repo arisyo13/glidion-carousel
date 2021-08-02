@@ -21,6 +21,7 @@ const DateCard = ({ day, onClick, size, state }: Props) => {
         >
             <>
                 <h3>{title}</h3>
+                { size === "full" && <h3 dangerouslySetInnerHTML={{__html: ", &nbsp;"}} className="comma" /> }
                 <h3>{subTitle}</h3>
             </>
         </div>
